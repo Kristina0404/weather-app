@@ -19,7 +19,7 @@ async function geoLocationWeather(){
     const obj1= await response1.json();
     const{longitude,latitude,city} = obj1
 
-    const response2 = await fetch('https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true');
+    const response2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`);
     const obj2 = await response2.json();
     const { current_weather } = obj2; 
     const { temperature,
