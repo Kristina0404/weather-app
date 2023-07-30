@@ -6,13 +6,36 @@ const descriptionElement = document.getElementById("description");
 const weatherCodeElement = document.getElementById('weatherCode')
 const windDirectionElement = document.getElementById('windDirection')
 const timeElement = document.getElementById('time')
+const dateElement = document.getElementById('date')
 
-let currentTime = new Date().getHours();
-  if(currentTime >=6 && currentTime < 21){
+function getCurrentDateTime(){
+  let currentDate = new Date();
+const year = currentDate.getFullYear();
+const month = currentDate.getMonth() + 1; // Месяцы нумеруются с 0 до 11, поэтому добавляем 1
+const day = currentDate.getDate();
+
+// Получаем информацию о времени
+const hours = currentDate.getHours();
+const minutes = currentDate.getMinutes();
+const seconds = currentDate.getSeconds();
+
+// Форматируем вывод, чтобы добавить ведущие нули при необходимости
+const formattedDate = `${day.toString().padStart(2, '0')}-${month.toString().padStart(2, '0')}-${year}`;
+const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+  if(currentDate.getHours() >=6 && currentDate.getHours() < 21){
     weatherCardElement.classList.add("weather-card");
   }else {
     weatherCardElement.classList.add("weather-card-night");
   }
+  
+  timeElement.textContent = formattedTime;
+  dateElement.textContent = formattedDate;
+}
+
+setInterval(getCurrentDateTime,1000);
+getCurrentDateTime();
+
 
 async function geoLocationWeather(){
     const response1 = await fetch('https://get.geojs.io/v1/ip/geo.json');
@@ -25,21 +48,19 @@ async function geoLocationWeather(){
     const { temperature,
       windspeed,
       winddirection,
-      weathercode,
-      is_day,
-      time} = current_weather;
+      weathercode} = current_weather;
 
       cityElement.textContent += city;
       temperatureElement.textContent += temperature+" °C";
       windElement.textContent += windspeed + " m/s  - " + windSpeed(windspeed)  ; 
       windDirectionElement.textContent += winddirection + "°  - " + getWindDirection(winddirection);
-      descriptionElement.textContent += getDescription(weathercode);
-      timeElement.textContent += time;   
+      descriptionElement.textContent += getDescription(weathercode);       
 }
+
 
  function getDescription(code){
     switch(code){
-        case  0: return "Clear sky";
+        case  0: return "Clear sky" ;
         case  1: return "Mainly clear";
         case  2: return "partly cloudy";
         case  3: return "Overcast";
@@ -59,7 +80,7 @@ async function geoLocationWeather(){
         case 73: return "Snow fall: moderate";
         case 75: return "Snow fall: heavy intensity";
         case 77: return "Snow grains";
-        case 80: return "Rain showers: slight";
+        case 80: return "Rain showers: slight" + url;
         case 81: return "Rain showers: moderate";
         case 82: return "Rain showers: violent"
         case 85: return "Snow showers slight"

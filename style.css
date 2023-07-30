@@ -1,81 +1,106 @@
 .weather-card {
-  background-image: url('https://t3.ftcdn.net/jpg/00/68/79/54/240_F_68795433_fjQuxeXBgS8WwBimyZgFcfIFFA5pRacx.jpg');
-  width: 300px;
-  height: 230px;
+  width: 400px;
+  height: 350px;
+  background-image: url('https://i.gifer.com/origin/b2/b27c211d159e51f012cb115bc05234fb_w200.gif' );
+  background-size: cover;
   background-position: center;
   border-radius: 15px;
-  color:rgb(66, 65, 65);
+  color:rgb(25, 16, 152);
+  
 }
 
 .weather-card-night {
   background-image: url('https://t3.ftcdn.net/jpg/00/91/34/32/240_F_91343272_mbCCWvWYyJShOQsSWBAUMox8VLfzXZQA.jpg');
-  width:300px;
-  height: 230px;
+  width:400px;
+  height: 350px;
   background-position: center;
   border: none;
   border-radius: 15px;
-  color: rgb(227, 227, 247);  
+  color: rgb(152, 103, 141);  
 }
 
 #city {
-  font-size: 180%;
+  font-size: 36px;
   font-weight: bold;
   font-family: 'Times New Roman', Times, serif;
   display:flex;
   flex-direction: row;
   justify-content: center;
-  margin: 10px 0 0 0;
+  margin: 20px 0 0 0;
   padding: 20px 0 0 0;
+}
+.icon-so {
+ width: 80px;
+ height: 80px;
+ margin: 30px 10px 0 10px;
+ background-image: url('./sun.png');
 }
 
 #weather-t{
   display: flex;
-  justify-content:space-evenly;
+  justify-content:center;
 }
 
 #temperature {
-  display:flex;
-  margin: 20px 0 0 20px ;
+  
+  margin: 20px 0 0 10px ;
   font-style:italic;
+  font-weight: bold;
+  font-size: 32px;
+  display:flex;
+  justify-content: center;
 }
 
 #icon-t {
   margin-right: 20px;
-  width: 20px;
-  height: 20px;
-  margin: 18px 0 0 0 ;
+  width: 30px;
+  height: 30px;
+  margin: 20px 0 0 0 ;
 }
 
 #weather-ws {
   display: flex;
   margin: 15px 0 0 0 ;
+  display:flex;
+  justify-content: center;
+  font-size: larger;
 }
 
 #wind {
   margin: 5px 0 10px 10px;
   font-style:italic;
+  font-weight: bold;
+  display:flex;
+  justify-content:center;
+
 }
   
 #icon-ws {
   margin:5px 10px 10px 65px ;
-  width: 20px;
-  height: 20px;  
+  width: 30px;
+  height: 30px;  
+  display:flex;
+  justify-content:space-between;
 }
 
 #weather-wd {
   display: flex;
-  justify-content:space-evenly;
+  justify-content:center;
+  font-size: larger;
 }
 
 #windDirection{
   display:flex;
+  justify-content: center;
   font-style:italic;
+  font-weight: bold;
+  
 }
 
 #icon-wd {  
-  margin: 0 5px 0 5px;
-  width: 20px;
-  height: 20px;
+  margin: 0 25px 0 5px;
+  width: 30px;
+  height: 30px;
 }
 
 #description{
@@ -84,12 +109,26 @@
   justify-content: center;
   margin: 10px;
   font-style:italic;
-  font-size: larger;
+  font-size: 28px;
   font-weight: bold;
-    
 }
 #time {
-  font-size: 10px;
+  
   display: flex;
-  justify-content: end;
+  justify-content: center;
+  margin-top:10px;
+  font-weight: bold;
+}
+#date {
+  margin-top:10px;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+}
+.icon-rain {
+  width: 80px;
+ height: 80px;
+ margin: 30px 10px 0 10px;
+  background-image: url("./rain.png");
+
 }
